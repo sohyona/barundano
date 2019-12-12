@@ -10,7 +10,6 @@ import "./components/Sticky.css";
 function Home() {
   const [dataUri, setDataUri] = useState("");
   function handleTakePhoto(dataUri) {
-    console.log("called");
     setDataUri(dataUri);
   }
 

@@ -1,2 +1,2 @@
-Django==2.0.13
-pytz==2019.3
+
+django-cors-headers==2.4.0
