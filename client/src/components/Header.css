@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'norwester';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local('norwester'),
+    url('http://localhost:3000/font/norwester.otf') format('otf');
+    
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.5em;
+  background: #FAFAFA;
+  font-family: 'norwester', sans-serif;
+}
