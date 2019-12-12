@@ -7,6 +7,7 @@ import Home from './Home';
 import TensorFlow from './TensorFlow';
 import Timer from "./Timer";
 import Report from "./Report";
+import Complete from "./Complete";
 import Setting from "./Setting";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/timer">
             <Timer />
+          </Route>
+          <Route path="/complete">
+            <Complete />
           </Route>
           <Route path="/report">
             <Report />

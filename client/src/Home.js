@@ -7,10 +7,36 @@ import "react-html5-camera-photo/build/css/index.css";
 import ImagePreview from "./components/ImagePreview";
 import "./components/Sticky.css";
 
+let model, webcam, labelContainer, maxPredictions;
+const URL = "/";
+
 function Home() {
   const [dataUri, setDataUri] = useState("");
-  function handleTakePhoto(dataUri) {
-    setDataUri(dataUri);
+
+  async function handleTakePhoto(dataUri) {
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+    model = await window.tmImage.load(modelURL, metadataURL);
+    console.log(model.predict);
+    maxPredictions = model.getTotalClasses();
+
+    await setDataUri(dataUri);
+
+    async function predict(dataUri) {
+      const prediction = await model.predict(dataUri);
+      let maxVal = 0;
+      let foodName = "";
+      for (let i = 0; i < maxPredictions; i++) {
+        if (prediction[i].probability > maxVal) {
+          maxVal = prediction[i].probability;
+          foodName = prediction[i].className;
+        }
+      }
+      console.log(foodName);
+      window.foodName = foodName;
+    }
+
+    await predict("http://localhost:3000/images/shh.png");
   }
 
   const isFullscreen = false;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link, withRouter } from "react-router-dom";
 import Title from "./components/Title";
@@ -7,7 +7,11 @@ let model, webcam, labelContainer, maxPredictions;
 const URL = "/";
 
 const TensorFlow = () => {
+  const [image, setImage] = useState(false);
+  const [food, setFood] = useState("");
+
   async function init() {
+    window.playVideo = true;
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
@@ -32,36 +36,74 @@ const TensorFlow = () => {
     }
   }
   async function loop() {
-    webcam.update(); // update the webcam frame
-    await predict();
-    window.requestAnimationFrame(loop);
+    if (window.playVideo) {
+      webcam.update(); // update the webcam frame
+      window.requestAnimationFrame(loop);
+    } else {
+      setImage(true);
+      await predict();
+    }
   }
+
+  function takePhoto() {
+    window.playVideo = false;
+  }
+
   // run the webcam image through the image model
   async function predict() {
+    // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
+    // console.log(prediction);
     let maxVal = 0;
-    let foodName = ''; 
+    let foodName = "";
     for (let i = 0; i < maxPredictions; i++) {
-      if(prediction[i].probability > maxVal) {
+      if (prediction[i].probability > maxVal) {
         maxVal = prediction[i].probability;
         foodName = prediction[i].className;
       }
     }
-    console.log(foodName);
+    // console.log(foodName);
     window.foodName = foodName;
+    setFood(foodName);
+  }
+
+  function handleChange(e) {
+    setFood(e.target.value);
+    window.foodName = e.target.value;
   }
 
   useEffect(() => {
     init();
   }, []);
+
   return (
     <div className="container-home">
       <Title text="STEP 1: 메뉴 선택" />
-      <div id="webcam-container"></div>
-      <div id="label-container"></div>
-      <Link to="/setting">
-        <div className="sticky">다음</div>
-      </Link>
+      <div className="photo-frame">
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+
+        {image ? (
+          <div>
+            <input
+              className="food"
+              type="text"
+              defaultValue={food}
+              onChange={handleChange}
+            />
+            <p className="helper-text">
+              해당 메뉴가 아닐 경우 메뉴명을 눌러 수정이 가능합니다
+            </p>
+            <Link to="/setting">
+              <div className="sticky">다음</div>
+            </Link>
+          </div>
+        ) : (
+          <div onClick={takePhoto} className="camera-button">
+            <div className="inner"></div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

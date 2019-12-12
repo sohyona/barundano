@@ -3,13 +3,35 @@
 body {
   font-family: "NanumBarunGothic", sans-serif;
   background-color: #fafafa;
+  line-height: 1.6em;
 }
 
 .container {
-  margin-top: 50px;
+  padding-top: 50px;
   text-align: center;
+  background: #fafafa;
+  height: 100vh;
 }
 
 input {
   outline: none;
+}
+
+div.box {
+  margin: 8px;
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 2em;
+  -webkit-box-shadow: 0px 3px 0px -1px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 3px 0px -1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 0px -1px rgba(0, 0, 0, 0.08);
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
 }

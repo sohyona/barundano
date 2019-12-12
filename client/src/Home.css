@@ -7,9 +7,6 @@
 }
 
 .photo-frame {
-  width: 132%;
-  left: -16%;
-  position: absolute;
 }
 
 .select-photo {
@@ -21,7 +18,7 @@ input.food {
   box-shadow: 0 1px 0 0 #b5b5b5;
   border: 0;
   width: 7em;
-  margin: 0.4em 0;
+  margin: 2em 0 0.4em 0;
   text-align: center;
   font-size: 2em;
   padding: 0 0 0.2em 0;
@@ -31,4 +28,21 @@ input.food {
 p.helper-text {
   font-size: 12px;
   color: #666;
+}
+
+.camera-button {
+  width: 41px;
+  height: 41px;
+  background-color: #cacaca;
+  padding: 10px;
+  border-radius: 100%;
+  margin: 90px auto;
+}
+
+.camera-button .inner {
+  background-color: #fafafa;
+  border-radius: 100%;
+  width: 1px;
+  height: 1px;
+  padding: 20px;
 }
