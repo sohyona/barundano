@@ -1,0 +1,71 @@
+.report-header {
+  background-image: linear-gradient(to right bottom, #32cca4, #2dbd97);
+  padding: 3em 0 6em 0;
+  color: #fff;
+}
+
+.report-header p {
+  font-size: 1.3em;
+  line-height: 1.6em;
+}
+
+.report-box-wrap {
+  margin-top: -80px;
+}
+
+.report-box {
+  margin: 1em;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 10px;
+  position: relative;
+}
+
+.report-box .desc {
+  font-size: 0.8em;
+}
+
+.report-box .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e2e2e2;
+  margin: 0.4em 0;
+}
+
+.report-box .red {
+  color: #f86052;
+}
+
+.report-box .green {
+  color: #32cca4;
+}
+
+.report-box h4 {
+  margin: 0;
+}
+
+.report-box .thumb-wrap {
+  margin-top: 1em;
+}
+
+.report-box .thumb-item {
+  width: 30%;
+  margin: 0 4px;
+  display: inline-block;
+  position: relative;
+}
+
+.report-box .thumb-item .caption {
+  position: absolute;
+  bottom: 6px;
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  line-height: 1.9em;
+}
+
+.container-report .sticky {
+  margin-top: 3em;
+  position: relative;
+}

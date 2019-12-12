@@ -3,8 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from './Home';
-import TensorFlow from './TensorFlow';
+import Home from "./Home";
+import TensorFlow from "./TensorFlow";
 import Timer from "./Timer";
 import Report from "./Report";
 import Complete from "./Complete";
@@ -18,10 +18,10 @@ function App() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <TensorFlow />
-          </Route>
-          <Route exact path="/home">
             <Home />
+          </Route>
+          <Route path="/camera">
+            <TensorFlow />
           </Route>
           <Route path="/setting">
             <Setting />

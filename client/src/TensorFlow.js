@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Home.css";
+import "./TensorFlow.css";
 import { Link, withRouter } from "react-router-dom";
 import Title from "./components/Title";
 
@@ -53,7 +53,7 @@ const TensorFlow = () => {
   async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
-    // console.log(prediction);
+
     let maxVal = 0;
     let foodName = "";
     for (let i = 0; i < maxPredictions; i++) {
@@ -62,7 +62,7 @@ const TensorFlow = () => {
         foodName = prediction[i].className;
       }
     }
-    // console.log(foodName);
+
     window.foodName = foodName;
     setFood(foodName);
   }
@@ -108,4 +108,4 @@ const TensorFlow = () => {
   );
 };
 
-export default TensorFlow;
+export default withRouter(TensorFlow);

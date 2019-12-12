@@ -1,6 +1,6 @@
 @font-face {
   font-family: Norwester;
-  src: url("http://localhost:3000/font/norwester.otf") format("opentype");
+  src: url("/font/norwester.otf") format("opentype");
 }
 
 header {
@@ -15,6 +15,7 @@ header {
   background: #fff;
   font-family: Norwester, sans-serif;
   border-bottom: 1px #eaeaea solid;
+  z-index: 999;
 }
 
 a {

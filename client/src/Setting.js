@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Setting.css";
 import Title from "./components/Title";
 import Sticky from "./components/Sticky";
+import { Link , withRouter} from "react-router-dom";
 import axios from "axios";
 
 // const API_URL = "http://localhost:8000";
@@ -78,4 +79,4 @@ function Setting() {
   );
 }
 
-export default Setting;
+export default withRouter(Setting);

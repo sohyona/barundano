@@ -42,15 +42,16 @@ function Complete() {
   }
 
   return (
-    <div className="container-report">
+    <div className="container-complete">
       <Title text={titleText} />
       <div className="food">
         <div className="box">
-          <strong>아침식사</strong> {window.foodName}
+          <strong>점심식사</strong> {window.foodName}
           <br />
-          <strong>목표 식사시간</strong> {formatter(window.timer)}분
+          <strong>목표 식사시간 </strong> {formatter(window.timer)}분
           <br />
-          <strong>총 식사시간</strong> {formatter(window.minute)}분{" "}
+          <strong>총 식사시간 </strong>
+          {window.minute + 1}분
         </div>
       </div>
       <div className="box">
@@ -113,9 +114,11 @@ function Complete() {
           </div>
         </div>
       </div>
-      <div className="sticky" onClick={handleSubmit}>
-        식사종료
-      </div>
+      <Link to="/">
+        <div className="sticky" onClick={handleSubmit}>
+          확인
+        </div>
+      </Link>
     </div>
   );
 }

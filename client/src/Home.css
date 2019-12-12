@@ -1,48 +1,62 @@
-.square-crop {
-  width: 375px;
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  display: block;
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  padding: 7px 0 0 0;
 }
 
-.photo-frame {
+.container-home .box {
+  margin: 0 10px;
 }
 
-.select-photo {
-  width: 100%;
-  background-color: #666;
-}
-
-input.food {
-  box-shadow: 0 1px 0 0 #b5b5b5;
-  border: 0;
-  width: 7em;
-  margin: 2em 0 0.4em 0;
-  text-align: center;
-  font-size: 2em;
-  padding: 0 0 0.2em 0;
-  background: transparent;
-}
-
-p.helper-text {
+.container-home .box .meal-label {
   font-size: 12px;
-  color: #666;
+  line-height: 1.4em;
 }
 
-.camera-button {
-  width: 41px;
-  height: 41px;
-  background-color: #cacaca;
-  padding: 10px;
-  border-radius: 100%;
-  margin: 90px auto;
+.container-home .box .title {
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px #f2f2f2 solid;
+  padding: 0 0 10px 0;
 }
 
-.camera-button .inner {
+.container-home .box .title img {
+  float: right;
+  margin-top: 5px;
+}
+
+.meal-thumb-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.meal-thumb {
+  width: 30%;
+}
+
+.meal-thumb .inner {
+  width: 100%;
   background-color: #fafafa;
-  border-radius: 100%;
-  width: 1px;
-  height: 1px;
-  padding: 20px;
+  border-radius: 2px;
+  padding: 1.8em 0;
+  min-height: 96px;
+  margin-bottom: 0.5em;
+  box-sizing: border-box;
+}
+
+.meal-thumb .breakfast {
+  background-size: cover;
+  background-image: url("/images/meal_thumb.png");
+}
+
+.meal-thumb .lunch {
+  background-size: cover;
+  background-image: url("/images/meal_thumb_2.jpeg");
+}
+
+.meal-thumb img {
+  width: 30px;
+  opacity: 0.2;
 }
