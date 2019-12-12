@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from './Home';
-import Menu from "./Menu";
 import Timer from "./Timer";
 import Report from "./Report";
 import Setting from "./Setting";
@@ -19,9 +18,6 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          {/* <Route path="/menu">
-            <Menu />
-          </Route> */}
           <Route path="/setting">
             <Setting />
           </Route>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Home.css";
-import { Redirect, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Title from "./components/Title";
-import Sticky from "./components/Sticky";
 import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import ImagePreview from "./components/ImagePreview";
+import "./components/Sticky.css";
 
 function Home() {
   const [dataUri, setDataUri] = useState("");
@@ -16,10 +16,10 @@ function Home() {
 
   const isFullscreen = false;
 
-  const [foodName, setFoodName] = useState("샐러드");
+  window.foodName = "샐러드";
 
   function handleChange(e) {
-    setFoodName(e.target.value);
+    window.foodName = e.target.value;
   }
 
   return (
@@ -32,7 +32,7 @@ function Home() {
             <input
               className="food"
               type="text"
-              value={foodName}
+              defaultValue={window.foodName}
               onChange={handleChange}
             />
             <p className="helper-text">
@@ -49,7 +49,9 @@ function Home() {
           </div>
         )}
       </div>
-      <Sticky path="/setting" />
+      <Link to="/setting">
+        <div className="sticky">다음</div>
+      </Link>
     </div>
   );
 }
