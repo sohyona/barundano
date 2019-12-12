@@ -1,13 +1,12 @@
-import React from 'react';
-import './Header.css';
+import React from "react";
+import "./Header.css";
 
 function Header() {
-  return(
+  return (
     <header>
-      BARUN DANO
+      <a href="/">BARUN DANO</a>
     </header>
-  )
+  );
 }
-
 
 export default Header;

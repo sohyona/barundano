@@ -1,5 +1,34 @@
+.square-crop {
+  width: 375px;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: block;
+}
+
+.photo-frame {
+  width: 132%;
+  left: -16%;
+  position: absolute;
+}
+
 .select-photo {
   width: 100%;
-  padding-top: 66%;
   background-color: #666;
+}
+
+input.food {
+  box-shadow: 0 1px 0 0 #b5b5b5;
+  border: 0;
+  width: 7em;
+  margin: 0.4em 0;
+  text-align: center;
+  font-size: 2em;
+  padding: 0 0 0.2em 0;
+  background: transparent;
+}
+
+p.helper-text {
+  font-size: 12px;
+  color: #666;
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import "./Sticky.css";
+import { Link, withRouter } from "react-router-dom";
 
-function Sticky() {
+function Sticky({ path }) {
   return (
-      <div className="sticky">
-       다음
-      </div>
+    <Link to={path}>
+      <div className="sticky">다음</div>
+    </Link>
   );
 }
 
-
-export default Sticky;
+export default withRouter(Sticky);

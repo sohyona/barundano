@@ -5,11 +5,8 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer>
-      <li>
+      {/* <li>
         <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/menu">menu</Link>
       </li>
       <li>
         <Link to="/setting">setting</Link>
@@ -19,7 +16,7 @@ function Footer() {
       </li>
       <li>
         <Link to="/report">report</Link>
-      </li>
+      </li> */}
     </footer>
   );
 }

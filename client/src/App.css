@@ -1,3 +1,15 @@
+@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
+
+body {
+  font-family: "NanumBarunGothic", sans-serif;
+  background-color: #fafafa;
+}
+
 .container {
   margin-top: 50px;
+  text-align: center;
+}
+
+input {
+  outline: none;
 }

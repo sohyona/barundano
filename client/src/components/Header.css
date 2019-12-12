@@ -1,11 +1,6 @@
 @font-face {
-  font-family: 'norwester';
-  font-style: normal;
-  font-weight: normal;
-  src:
-    local('norwester'),
-    url('http://localhost:3000/font/norwester.otf') format('otf');
-    
+  font-family: Norwester;
+  src: url("http://localhost:3000/font/norwester.otf") format("opentype");
 }
 
 header {
@@ -16,7 +11,13 @@ header {
   right: 0;
   padding: 10px 0;
   text-align: center;
-  font-size: 1.5em;
-  background: #FAFAFA;
-  font-family: 'norwester', sans-serif;
+  font-size: 1.3em;
+  background: #fff;
+  font-family: Norwester, sans-serif;
+  border-bottom: 1px #eaeaea solid;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
