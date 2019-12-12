@@ -13,8 +13,10 @@ function formatter(time) {
   return time;
 }
 
+let flasher;
+
 function Timer() {
-  const [minute, setMinute] = useState(4);
+  const [minute, setMinute] = useState(5);
   const [second, setSecond] = useState(59);
   const [flash, setFlash] = useState(false);
 
@@ -28,11 +30,10 @@ function Timer() {
   }
 
   useEffect(() => {
+    console.log(minute, second, flash);
     let counter = setInterval(() => {
-      console.log(minute, second);
-      if (second < 59) {
-        setSecond(second + 1);
-      } else {
+      setSecond(second + 1);
+      if (second === 59) {
         setSecond(0);
         setMinute(minute + 1);
       }
@@ -40,27 +41,21 @@ function Timer() {
       window.second = second;
     }, 1000);
 
+    if (minute % 5 === 0 && minute > 0 && second === 0) {
+      console.log(minute % 5);
+      flasher = setInterval(() => {
+        console.log(flash);
+        setFlash(flash => !flash);
+      }, 100);
+    } else if (second === 1) {
+      clearInterval(flasher);
+      setFlash(false);
+    }
+
     return () => {
       clearInterval(counter);
     };
-  });
-
-  useEffect(() => {
-    let flasher;
-    if (minute % 5 === 0 && minute > 0 && second > 2) {
-      console.log("i am here");
-      clearInterval(flasher);
-    }
-    if (minute % 5 === 0 && minute > 0 && second === 0) {
-      let counter=0;
-      // startFlash(true);
-      console.log("i am ...")
-      flasher = setInterval(() => {
-        console.log(flash);
-        setFlash(!flash);
-      }, 100);
-    }
-  })
+  }, [minute, second]);
 
   return (
     <div className="container-timer">
