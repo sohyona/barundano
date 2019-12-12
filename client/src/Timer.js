@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useInterval } from "react";
 import { Link } from "react-router-dom";
-import Title from './components/Title';
+import Title from "./components/Title";
 import "./Timer.css";
 import "./components/Sticky.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -14,12 +14,22 @@ function formatter(time) {
 }
 
 function Timer() {
-  const [minute, setMinute] = useState(0);
-  const [second, setSecond] = useState(0);
+  const [minute, setMinute] = useState(4);
+  const [second, setSecond] = useState(59);
   const [flash, setFlash] = useState(false);
+
+  function startFlash(val) {
+    if (val) {
+      setInterval(() => {
+        console.log(flash);
+        setFlash(!flash);
+      }, 100);
+    }
+  }
 
   useEffect(() => {
     let counter = setInterval(() => {
+      console.log(minute, second);
       if (second < 59) {
         setSecond(second + 1);
       } else {
@@ -34,6 +44,23 @@ function Timer() {
       clearInterval(counter);
     };
   });
+
+  useEffect(() => {
+    let flasher;
+    if (minute % 5 === 0 && minute > 0 && second > 2) {
+      console.log("i am here");
+      clearInterval(flasher);
+    }
+    if (minute % 5 === 0 && minute > 0 && second === 0) {
+      let counter=0;
+      // startFlash(true);
+      console.log("i am ...")
+      flasher = setInterval(() => {
+        console.log(flash);
+        setFlash(!flash);
+      }, 100);
+    }
+  })
 
   return (
     <div className="container-timer">
