@@ -1,0 +1,22 @@
+.emoji-wrap {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.emoji-wrap img {
+  width: 50%;
+}
+
+.selected {
+  font-weight: bold;
+  color: #f86767;
+}
+
+.icon-wrap {
+  margin-top: 15px;
+}
+
+.icon-wrap img {
+  width: 20px; margin: 0 2px;
+}
