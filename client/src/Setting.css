@@ -13,7 +13,7 @@ select {
   cursor: pointer;
   border-radius: 21px;
   font-size: 1.2em;
-  background-image: url("http://localhost:3000/images/arrow.png");
+  background-image: url("/images/arrow.png");
   background-repeat: no-repeat;
   background-position: right 20px center;
 }
