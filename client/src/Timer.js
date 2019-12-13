@@ -16,8 +16,8 @@ function formatter(time) {
 let flasher;
 
 function Timer() {
-  const [minute, setMinute] = useState(5);
-  const [second, setSecond] = useState(59);
+  const [minute, setMinute] = useState(0);
+  const [second, setSecond] = useState(0);
   const [flash, setFlash] = useState(false);
 
   function startFlash(val) {
