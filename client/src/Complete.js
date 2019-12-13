@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import "./components/Sticky.css";
 import axios from "axios";
 
-const API_URL = "http://192.168.43.238:8000";
+// const API_URL = "http://192.168.43.238:8000";
+const API_URL = "https://django-barun.herokuapp.com";
 
 function formatter(time) {
   if (time < 10) {

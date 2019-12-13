@@ -19,18 +19,10 @@ function Timer() {
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
   const [flash, setFlash] = useState(false);
-
-  function startFlash(val) {
-    if (val) {
-      setInterval(() => {
-        console.log(flash);
-        setFlash(!flash);
-      }, 100);
-    }
-  }
+  const [speed, setSpeed] = useState(1000);
 
   useEffect(() => {
-    console.log(minute, second, flash);
+    console.log(minute, second, flash, speed);
     let counter = setInterval(() => {
       setSecond(second + 1);
       if (second === 59) {
@@ -39,7 +31,13 @@ function Timer() {
       }
       window.minute = minute;
       window.second = second;
-    }, 1000);
+    }, speed);
+
+    if (minute === 0 && second === 3) {
+      setSpeed(speed => 10);
+    } else if (minute === 4 && second === 57) {
+      setSpeed(speed => 1000);
+    }
 
     if (minute % 5 === 0 && minute > 0 && second === 0) {
       console.log(minute % 5);

@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./Setting.css";
 import Title from "./components/Title";
 import Sticky from "./components/Sticky";
-import { Link , withRouter} from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 
-// const API_URL = "http://localhost:8000";
-const API_URL = "http://192.168.43.238:8000";
+// const API_URL = "http://192.168.43.238:8000";
+const API_URL = "https://django-barun.herokuapp.com";
 
 function Setting() {
   const [timeOption, setTimeOption] = useState([]);
+  var min = 30;
+  var max = 50;
 
   const dispatch = async () => {
     const foodName = window.foodName || "샐러드";
@@ -18,14 +20,13 @@ function Setting() {
       .post(`${API_URL}/barundano/timesuggest/`, data)
       .then(res => {
         console.log(res.data);
+        min = Number(res.data.msg);
         return res.data;
       })
       .catch(err => {
         console.error(err);
       });
 
-    const min = Number(response.msg);
-    const max = 50;
     let timeRange = [];
 
     for (let i = min; i <= max; i += 5) {
